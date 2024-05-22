@@ -9,7 +9,7 @@ export default function Dashboard() {
 					Student
 				</a>
 				<a
-					href="http://"
+					href="/results"
 					className="mx-3 bg-amber-800 rounded-md p-2 text-white hover:bg-amber-600"
 				>
 					Resutls

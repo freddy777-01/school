@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "../components/input";
 import { FaExclamation } from "react-icons/fa";
+import NavBar from "../components/navbar";
 export default function Students() {
 	const [firstName, setFirstName] = useState('');
 	const [middleName, setMiddleName] = useState('');
@@ -18,7 +19,8 @@ export default function Students() {
         },
 	};
 	return (
-		<div className="h-screen flex flex-col justify-center place-items-center">
+		<div className="h-screen flex flex-col place-items-center">
+			<NavBar/>
 			<span>{firstName}</span>
 			<span>{middleName}</span>
 			<span>{lastName}</span>
