@@ -19,13 +19,14 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String first_name;
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
 
     @ManyToMany(mappedBy = "teachers")
     private List<Clas> classes;
 
-    @OneToOne
-    @JoinColumn(name = "user_id",referencedColumnName = "id",table = "users")
+    @OneToOne(mappedBy = "teacher")
     private User user;
 }

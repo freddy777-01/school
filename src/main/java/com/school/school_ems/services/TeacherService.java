@@ -11,7 +11,8 @@ public class TeacherService {
     @Autowired
    private TeacherRespository teacherRespository;
 
-    public void CreateTeacher(Teacher teacher){
+    public Teacher CreateTeacher(Teacher teacher){
         Teacher t = teacherRespository.save(teacher);
+        return t;
     }
 }
