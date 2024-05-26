@@ -15,6 +15,8 @@ import com.school.school_ems.services.UserService;
 // import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 // @AllArgsConstructor
 // @CrossOrigin(origins = "http://localhost:5173")
@@ -25,6 +27,7 @@ public class UserController {
     private UserService userService;
     private TeacherService teacherService;
 
+    @CrossOrigin(origins = "http://localhost:5173/api/user")
     @PostMapping("create")
     public ResponseEntity<User> CreateUser(@RequestBody RegisterForm registerForm) {
         User user = new User();
