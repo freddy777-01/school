@@ -14,15 +14,16 @@ public class SchoolEmsApplication {
 	}
 
 	@Bean
-	public WebMvcConfigurer crosConfigurer(){
+	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@SuppressWarnings("null")
 			@Override
-			public void addCorsMappings(CorsRegistry registry){
+			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-				.allowedOrigins( "http://localhost:5173")
-				.allowedHeaders("*")
-				.allowCredentials(true);
+						.allowedOrigins("http://localhost:5173")
+						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+						.allowedHeaders("*")
+						.allowCredentials(true);
 			}
 		};
 	}

@@ -16,19 +16,17 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
 // @AllArgsConstructor
 // @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-    
+
     private UserService userService;
     private TeacherService teacherService;
-    
-    @PostMapping("/create")
-    public ResponseEntity<User> CreateUser(@RequestBody RegisterForm registerForm){
+
+    @PostMapping("create")
+    public ResponseEntity<User> CreateUser(@RequestBody RegisterForm registerForm) {
         User user = new User();
         Teacher teacher = new Teacher();
         user.setName(registerForm.getFirstName());
@@ -42,9 +40,6 @@ public class UserController {
         teacher.setUser(createdUser);
         Teacher createdTeacher = teacherService.CreateTeacher(teacher);
 
-
-
-        return new ResponseEntity<User>(createdUser,HttpStatus.CREATED);
+        return new ResponseEntity<User>(createdUser, HttpStatus.CREATED);
     }
 }
-
