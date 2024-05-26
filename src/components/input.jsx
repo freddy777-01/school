@@ -4,8 +4,9 @@ export default function Input({
 	type = "text",
 	placeholder = "",
 	value,
-    name,
+	name,
 	callback,
+	required = false,
 }) {
 	let getValue = (event) => {
 		callback(event.target.value);
@@ -15,13 +16,14 @@ export default function Input({
 			type={type}
 			placeholder={placeholder}
 			value={value}
-            name={name}
+			name={name}
 			className={
 				type == "button"
 					? "bg-amber-600 rounded-md p-1 hover:bg-amber-800 text-white cursor-pointer"
 					: "p-1 rounded-sm border-0 border-amber-400 focus:border-amber-600"
 			}
 			onChange={getValue}
+			required={required}
 		/>
 	);
 }
