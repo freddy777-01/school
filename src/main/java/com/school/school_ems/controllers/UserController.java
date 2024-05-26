@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
-@CrossOrigin(origins = "http://localhost:5173")
 // @AllArgsConstructor
+// @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
     
     private UserService userService;
     private TeacherService teacherService;
-
+    
     @PostMapping("/create")
     public ResponseEntity<User> CreateUser(@RequestBody RegisterForm registerForm){
         User user = new User();
@@ -38,7 +38,7 @@ public class UserController {
         User createdUser = userService.CreateUser(user);
 
         teacher.setFirstName(registerForm.getFirstName());
-        teacher.setLastName(registerForm.getLastname());
+        teacher.setLastName(registerForm.getLastName());
         teacher.setUser(createdUser);
         Teacher createdTeacher = teacherService.CreateTeacher(teacher);
 
