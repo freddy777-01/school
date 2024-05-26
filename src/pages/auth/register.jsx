@@ -22,7 +22,7 @@ export default function Register() {
 	};
 	let signup = () => {
 		// console.log(data);
-		createRequest("/user/create",data).then(response=>console.log(response.data)).catch(error=>console.log(error.message))
+		createRequest("/register",data).then(response=>console.log(response.status)).catch(error=>console.log(error.message))
 	};
 	return (
 		<div className="h-screen flex place-items-center justify-center">
