@@ -19,7 +19,7 @@ public class TeacherController {
 
     private TeacherService teacherService;
 
-    @CrossOrigin(origins = "http://localhost:5173/api/teacher")
+    // @CrossOrigin(origins = "http://localhost:5173/api/teacher")
     @PostMapping
     public ResponseEntity<Teacher> createTeacher(@RequestBody Teacher teacher){
         return new ResponseEntity<Teacher>(teacherService.CreateTeacher(teacher),HttpStatus.CREATED);

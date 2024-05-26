@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "teachers")
 @NoArgsConstructor
 @AllArgsConstructor
-@SecondaryTable(name = "users")
 public class Teacher {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,10 +22,9 @@ public class Teacher {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    private  Long user_id;
 
     @ManyToMany(mappedBy = "teachers")
     private List<Clas> classes;
 
-    @OneToOne(mappedBy = "teacher")
-    private User user;
 }

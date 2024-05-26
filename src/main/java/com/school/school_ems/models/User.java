@@ -12,8 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-@SecondaryTable(name = "students")
-@SecondaryTable(name = "teachers")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,13 +20,4 @@ public class User {
     private String email;
     private String password;
 
-    // @OneToOne(mappedBy = "user")
-    // private Student student;
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", table = "students")
-    private Student student;
-
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", table = "teachers")
-    private Teacher teacher;
 }

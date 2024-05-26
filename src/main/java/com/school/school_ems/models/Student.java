@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@SecondaryTable(name = "users")
 @Entity
 @Table(name = "students")
 public class Student implements Serializable {
@@ -30,17 +29,12 @@ public class Student implements Serializable {
     private String gender;
     @Column(name = "reg_number")
     private String regNumber;
+    private Long user_id;
 
     @ManyToOne
     @JoinColumn(name = "class_id")
     private Clas clas;
 
-    /* @OneToOne
-    @JoinColumn(name = "user_id",referencedColumnName ="id",table = "users")
-    private User user; */
-
-    @OneToOne(mappedBy = "student")
-    private User user;
 
     @ManyToMany
     @JoinTable(

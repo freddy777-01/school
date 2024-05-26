@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.school.school_ems.models.User;
 import com.school.school_ems.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     @Autowired
