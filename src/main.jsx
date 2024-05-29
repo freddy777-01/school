@@ -9,6 +9,7 @@ import Register from "./pages/auth/register.jsx";
 import Dashboard from "./pages/dashboard.jsx";
 import Students from "./pages/students.jsx";
 import Result from "./pages/results.jsx";
+import Student from "./pages/student.jsx";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
 	{
 		path:"/students",
 		element:<Students/>
+	},
+	{
+		path:"/student/:studentId/edit",
+		element:<Student/>
 	},
 	{
 		path:"/results",

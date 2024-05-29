@@ -13,7 +13,7 @@ export default function Students() {
 	const [regNo, setRegNo] = useState("");
 	const [gender, setGender] = useState("");
 	const [students, setStudents] = useState("");
-// console.log(students);
+	// console.log(students);
 	let formController = {
 		firstName: function (d) {
 			setFirstName(d);
@@ -28,6 +28,12 @@ export default function Students() {
 			console.log(e.currentTarget.value);
 		},
 	};
+	const getStudents = () =>
+		getRequest("/students/all").then((response) => setStudents(response.data));
+
+	useEffect(() => {
+		getStudents();
+	}, []);
 
 	let data = {
 		firstName: firstName,
@@ -65,6 +71,7 @@ export default function Students() {
 						// transition: Bounce,
 					});
 				}
+				getStudents();
 			})
 			.catch((error) => {
 				console.log(error.message);
@@ -81,13 +88,6 @@ export default function Students() {
 				});
 			});
 	};
-
-	useEffect(() => {
-		getRequest("/students/all").then((response) => {
-			setStudents(response.data);
-			// console.log(students);
-		});
-	},[]);
 
 	return (
 		<div className="h-screen flex flex-col place-items-center">
@@ -172,10 +172,10 @@ export default function Students() {
 										<td className="p-2">{student.gender}</td>
 										<td className="p-2 text-center">{student.regNumber}</td>
 										<td>
-											<button className="bg-amber-600 rounded-md p-1 hover:bg-amber-800 text-white cursor-pointer">
+											<a href={"/student/"+student.id+"/edit"} className="mx-1 bg-amber-600 rounded-md p-1 hover:bg-amber-800 text-white cursor-pointer">
 												Edit
-											</button>
-											<button className="bg-amber-600 rounded-md p-1 hover:bg-amber-800 text-white cursor-pointer">
+											</a>
+											<button className="mx-1 bg-amber-600 rounded-md p-1 hover:bg-amber-800 text-white cursor-pointer">
 												Delete
 											</button>
 										</td>
