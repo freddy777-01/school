@@ -16,6 +16,9 @@ import com.school.school_ems.services.UserService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @AllArgsConstructor
@@ -42,4 +45,11 @@ public class StudentController {
         List<Student> students = studentService.GetStudents();
         return ResponseEntity.ok(students);
     }
+
+     @GetMapping("student/{id}")
+    public ResponseEntity<Student> GetStudent(@PathVariable("id") Long studentId) {
+        Student  student = studentService.GetStudent(studentId);
+        return  ResponseEntity.ok(student);
+    }
+    
 }

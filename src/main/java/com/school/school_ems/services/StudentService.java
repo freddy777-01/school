@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.school.school_ems.models.Student;
 import com.school.school_ems.repositories.StudentRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class StudentService {
     
@@ -22,5 +24,9 @@ public class StudentService {
     public List<Student> GetStudents(){
         List<Student> students = studentRepository.findAll();
         return students;
+    }
+    public Student GetStudent(Long id){
+        Student s = studentRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Student not found with id " + id));;
+        return s;
     }
 }
