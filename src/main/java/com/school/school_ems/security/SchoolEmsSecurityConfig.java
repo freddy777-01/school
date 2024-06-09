@@ -20,9 +20,10 @@ public class SchoolEmsSecurityConfig {
           jdbcUserDetailsManager.setUsersByUsernameQuery(
             "select email, password from users where email = ?"
           );
-
           //to define query to fetch roles use setAuthoritiesByUserNameQuery method of jdbcUserDetailsManager
 
         return jdbcUserDetailsManager;
+
+        // return new JdbcUserDetailsManager(dataSource);
     }
 }
